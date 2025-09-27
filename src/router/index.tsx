@@ -9,6 +9,8 @@ const Control = lazy(() => import('@/views/Control'))
 const Menu = lazy(() => import('@/views/Menu'))
 const Role = lazy(() => import('@/views/Role'))
 const User = lazy(() => import('@/views/User'))
+const Intendant = lazy(() => import('@/views/User/intendant'))
+const NormalUser = lazy(() => import('@/views/User/normal-user'))
 
 // 受保护的路由配置
 const createProtectedRoute = (Component: React.ComponentType) => {
