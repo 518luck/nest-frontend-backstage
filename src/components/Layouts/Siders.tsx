@@ -36,7 +36,6 @@ const Siders = () => {
   const { collapsed, toggleCollapsed } = LayoutStore()
 
   const navigatorClick: MenuProps['onClick'] = (e) => {
-    console.log(e.key)
     navigate(`/${e.key}`)
   }
   return (

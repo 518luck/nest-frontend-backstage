@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { lazy } from 'react'
 import ProtectedRoute from './ProtectedRoute'
 
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
+      { index: true, element: <Navigate to='/control' replace /> },
       ...protectedRoutes.map(({ path, component }) => ({
         path,
         element: createProtectedRoute(component),
