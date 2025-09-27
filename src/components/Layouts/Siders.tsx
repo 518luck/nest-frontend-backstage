@@ -1,4 +1,5 @@
-import { Layout, Menu, Typography } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import { Layout, Menu, Typography, type MenuProps } from 'antd'
 import LayoutStore from '@/components/stores/Layout-store'
 import { GiBarn, GiEyeball, GiTeamIdea, GiAbstract050 } from 'react-icons/gi'
 
@@ -9,39 +10,35 @@ const { Title } = Typography
 
 const items = [
   {
-    key: '1',
+    key: 'control',
     label: '控制台',
     icon: <GiBarn />,
   },
   {
-    key: '2',
+    key: 'user',
     label: '用户管理',
     icon: <GiTeamIdea />,
-    children: [
-      {
-        label: '用户列表',
-        key: '2-1',
-      },
-      {
-        label: '角色列表',
-        key: '2-2',
-      },
-    ],
   },
   {
-    key: '3',
+    key: 'role',
     label: '角色管理',
     icon: <GiEyeball />,
   },
   {
-    key: '4',
+    key: 'menu',
     label: '菜单管理',
     icon: <GiAbstract050 />,
   },
 ]
 
 const Siders = () => {
+  const navigate = useNavigate()
   const { collapsed, toggleCollapsed } = LayoutStore()
+
+  const navigatorClick: MenuProps['onClick'] = (e) => {
+    console.log(e.key)
+    navigate(`/${e.key}`)
+  }
   return (
     <Sider
       collapsed={collapsed}
@@ -67,6 +64,7 @@ const Siders = () => {
         mode='inline'
         theme='dark'
         items={items}
+        onClick={navigatorClick}
         className='h-[calc(100%-72px)] overflow-auto bg-[#141414] custom-menu-item'
       />
     </Sider>
