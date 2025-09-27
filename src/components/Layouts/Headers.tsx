@@ -20,8 +20,8 @@ const Headers = () => {
   const { toggleCollapsed } = LayoutStore()
 
   return (
-    <Header className='text-white bg-[#141414] px-5 border-l border-[#1f1f1f80]'>
-      <div className='flex justify-between items-center'>
+    <Header className='flex justify-center items-center flex-col h-30 bg-[#141414] px-5 border-l border-[#1f1f1f80]'>
+      <div className='flex justify-between items-center w-full'>
         <div className='flex justify-start items-center gap-6'>
           <div className='cursor-pointer'>
             <GiHamburgerMenu
@@ -45,7 +45,7 @@ const Headers = () => {
           />
         </div>
       </div>
-      <div className='h-18'></div>
+      <div className='h-10 bg-amber-600 w-full'>12312312</div>
     </Header>
   )
 }
