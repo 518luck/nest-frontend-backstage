@@ -1,8 +1,19 @@
 import { create } from 'zustand'
 
-const PathListStore = create((set) => ({
+type pathListType = {
+  key: Array<string>
+  path: string
+  name: string
+}
+
+export interface PathListStoreType {
+  pathList: pathListType[]
+  setPathList: (pathList: pathListType[]) => void
+}
+
+const PathListStore = create<PathListStoreType>((set) => ({
   pathList: [],
-  setPathList: (pathList: string[]) => set({ pathList }),
+  setPathList: (pathList: pathListType[]) => set({ pathList }),
 }))
 
 export default PathListStore

@@ -28,7 +28,14 @@ const protectedRoutes = [
   },
   { path: '/menu', component: Menu },
   { path: '/role', component: Role },
-  { path: '/user', component: User },
+  {
+    path: '/user',
+    component: User,
+    children: [
+      { path: 'intendant', component: Intendant },
+      { path: 'normal-user', component: NormalUser },
+    ],
+  },
 ]
 const router = createBrowserRouter([
   {
@@ -40,9 +47,13 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <Navigate to='/control' replace /> },
-      ...protectedRoutes.map(({ path, component }) => ({
+      ...protectedRoutes.map(({ path, component, children }) => ({
         path,
         element: createProtectedRoute(component),
+        children: children?.map((child) => ({
+          path: child.path,
+          element: createProtectedRoute(child.component),
+        })),
       })),
     ],
   },
