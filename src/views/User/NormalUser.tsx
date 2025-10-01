@@ -3,8 +3,8 @@ import { Table } from 'antd';
 const columns = [
   {
     title: '姓名',
-    dataIndex: 'name',
-    key: 'name',
+    dataIndex: 'username',
+    key: 'username',
   },
   {
     title: '年龄',
@@ -12,9 +12,14 @@ const columns = [
     key: 'age',
   },
   {
-    title: '住址',
-    dataIndex: 'address',
-    key: 'address',
+    title: '性别',
+    dataIndex: 'gender',
+    key: 'gender',
+  },
+  {
+    title: '注册时间',
+    dataIndex: 'createAt',
+    key: 'createAt',
   },
 ];
 

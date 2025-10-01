@@ -1,15 +1,15 @@
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 export type pathListType = {
-  key: Array<string>
-  path: string
-  name: string
-}
+  key: Array<string>;
+  path: string;
+  name: string;
+};
 
 export interface PathListStoreType {
-  pathList: pathListType[]
-  setPathList: (pathList: pathListType[]) => void
+  pathList: pathListType[];
+  setPathList: (pathList: pathListType[]) => void;
 }
 
 const PathListStore = create<PathListStoreType>()(
@@ -20,8 +20,8 @@ const PathListStore = create<PathListStoreType>()(
     }),
     {
       name: 'path-list-store',
-    }
-  )
-)
+    },
+  ),
+);
 
-export default PathListStore
+export default PathListStore;
