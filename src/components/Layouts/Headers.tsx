@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import { Layout, Menu, Typography, Avatar, Tag } from 'antd'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
 import LayoutStore from '@/components/stores/Layout-store'
-import PathListStore from '@/components/stores/Path-list-store'
+import PathListStore, {
+  type pathListType,
+} from '@/components/stores/Path-list-store'
 
 const { Header } = Layout
 const { Text } = Typography
@@ -17,13 +20,17 @@ const MenuItems = [
   },
 ]
 const Headers = () => {
+  const navigate = useNavigate()
   const { toggleCollapsed } = LayoutStore()
-  const { pathList } = PathListStore()
-  console.log('🚀 ~ Headers ~ pathList:', pathList)
+  const { pathList, setPathList } = PathListStore()
 
+  const navigatorClick = (e: pathListType) => {
+    setPathList([e])
+    navigate(e.path)
+  }
   return (
-    <Header className='flex justify-center flex-col h-19 bg-[#141414] px-5 border-l border-[#1f1f1f80]'>
-      <div className='flex justify-between w-full h-12'>
+    <Header className='h-14 p-2 bg-[#141414] border-l border-[#1f1f1f80]'>
+      <div className='flex justify-between items-center w-full h-10'>
         <div className='flex justify-start items-center gap-6'>
           <div className='cursor-pointer'>
             <GiHamburgerMenu
@@ -46,14 +53,6 @@ const Headers = () => {
             className='cursor-pointer'
           />
         </div>
-      </div>
-      <div className='w-full flex justify-start'>
-        {pathList.length > 0 &&
-          pathList.map((item) => (
-            <Tag color='purple' className='-translate-y-1' key={item.path}>
-              {item.name}
-            </Tag>
-          ))}
       </div>
     </Header>
   )

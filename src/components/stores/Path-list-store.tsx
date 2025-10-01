@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-type pathListType = {
+export type pathListType = {
   key: Array<string>
   path: string
   name: string
