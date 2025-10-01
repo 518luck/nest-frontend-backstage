@@ -3,7 +3,7 @@ const Control = () => {
     <div>
       <h1>Control</h1>
     </div>
-  )
-}
+  );
+};
 
-export default Control
+export default Control;

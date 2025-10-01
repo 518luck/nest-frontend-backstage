@@ -16,10 +16,10 @@ const Layouts = () => {
           {/* 顶部导航栏 */}
           <Headers />
           {/* 内容区域 */}
-          <div className="flex flex-1 flex-col bg-[#1f1f1f] px-4">
+          <div className="flex flex-1 flex-col bg-[#282828] px-4">
             {/* 面包屑导航栏 */}
             <BreadcrumbNav />
-            <div className="mb-2 w-full flex-1 rounded-[10px] bg-[#141414]">
+            <div className="mb-2 w-full flex-1 overflow-hidden rounded-[10px] bg-[#141414]">
               <Outlet />
             </div>
           </div>

@@ -1,16 +1,16 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { lazy } from 'react'
-import ProtectedRoute from './ProtectedRoute'
+import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { lazy } from 'react';
+import ProtectedRoute from './ProtectedRoute';
 
-import App from '@/App'
-import Login from '@/views/login/Login'
+import App from '@/App';
+import Login from '@/views/login/Login';
 
-const Control = lazy(() => import('@/views/Control'))
-const Menu = lazy(() => import('@/views/Menu'))
-const Role = lazy(() => import('@/views/Role'))
-const User = lazy(() => import('@/views/User'))
-const Intendant = lazy(() => import('@/views/User/intendant'))
-const NormalUser = lazy(() => import('@/views/User/normal-user'))
+const Control = lazy(() => import('@/views/Control'));
+const Menu = lazy(() => import('@/views/Menu'));
+const Role = lazy(() => import('@/views/Role'));
+const User = lazy(() => import('@/views/User'));
+const Intendant = lazy(() => import('@/views/User/intendant'));
+const NormalUser = lazy(() => import('@/views/User/NormalUser'));
 
 // 受保护的路由配置
 const createProtectedRoute = (Component: React.ComponentType) => {
@@ -18,8 +18,8 @@ const createProtectedRoute = (Component: React.ComponentType) => {
     <ProtectedRoute>
       <Component />
     </ProtectedRoute>
-  )
-}
+  );
+};
 
 const protectedRoutes = [
   {
@@ -36,7 +36,7 @@ const protectedRoutes = [
       { path: 'normal-user', component: NormalUser },
     ],
   },
-]
+];
 const router = createBrowserRouter([
   {
     path: '/login',
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
-      { index: true, element: <Navigate to='/control' replace /> },
+      { index: true, element: <Navigate to="/control" replace /> },
       ...protectedRoutes.map(({ path, component, children }) => ({
         path,
         element: createProtectedRoute(component),
@@ -57,6 +57,6 @@ const router = createBrowserRouter([
       })),
     ],
   },
-])
+]);
 
-export default router
+export default router;
