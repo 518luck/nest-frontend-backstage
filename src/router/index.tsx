@@ -33,7 +33,7 @@ const protectedRoutes = [
     component: User,
     children: [
       { path: 'intendant', component: Intendant },
-      { path: 'normal-user', component: NormalUser },
+      { path: 'normalUser', component: NormalUser },
     ],
   },
 ];

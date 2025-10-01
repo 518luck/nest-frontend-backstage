@@ -1,5 +1,8 @@
 import { Table } from 'antd';
 
+import { getUsers } from '@/api';
+import { useState, useEffect } from 'react';
+
 const columns = [
   {
     title: '姓名',
@@ -24,6 +27,11 @@ const columns = [
 ];
 
 const NormalUser = () => {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    getUsers().then((res) => setUsers(res.data));
+  }, []);
+
   return (
     <div>
       <Table columns={columns} dataSource={[]} />

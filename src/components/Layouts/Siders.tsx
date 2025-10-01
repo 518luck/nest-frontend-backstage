@@ -27,7 +27,7 @@ const items = [
         label: '管理员',
       },
       {
-        key: 'normal-user',
+        key: 'normalUser',
         label: '普通用户',
       },
     ],
