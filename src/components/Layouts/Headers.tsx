@@ -1,11 +1,7 @@
-import { useNavigate } from 'react-router-dom';
 import { Layout, Menu, Typography, Avatar } from 'antd';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 import LayoutStore from '@/components/stores/Layout-store';
-import PathListStore, {
-  type pathListType,
-} from '@/components/stores/Path-list-store';
 
 const { Header } = Layout;
 const { Text } = Typography;
@@ -20,14 +16,7 @@ const MenuItems = [
   },
 ];
 const Headers = () => {
-  const navigate = useNavigate();
   const { toggleCollapsed } = LayoutStore();
-  const { pathList, setPathList } = PathListStore();
-
-  const navigatorClick = (e: pathListType) => {
-    setPathList([e]);
-    navigate(e.path);
-  };
 
   return (
     <Header className="h-14 border-l border-[#1f1f1f80] bg-[#141414] p-2">
