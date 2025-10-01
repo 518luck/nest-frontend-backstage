@@ -3,4 +3,4 @@ export const antdTheme = {
     colorPrimary: '#7d7d7d69',
     colorTextBase: '#fff', // 文字颜色
   },
-}
+};

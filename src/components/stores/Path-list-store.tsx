@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
 export type pathListType = {
   key: Array<string>
@@ -11,9 +12,16 @@ export interface PathListStoreType {
   setPathList: (pathList: pathListType[]) => void
 }
 
-const PathListStore = create<PathListStoreType>((set) => ({
-  pathList: [],
-  setPathList: (pathList: pathListType[]) => set({ pathList }),
-}))
+const PathListStore = create<PathListStoreType>()(
+  persist(
+    (set) => ({
+      pathList: [],
+      setPathList: (pathList: pathListType[]) => set({ pathList }),
+    }),
+    {
+      name: 'path-list-store',
+    }
+  )
+)
 
 export default PathListStore
