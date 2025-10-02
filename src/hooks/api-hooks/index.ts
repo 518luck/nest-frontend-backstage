@@ -1,1 +1,1 @@
-export * from '@/hooks/api-hooks/users-hooks';
+export * from '@/hooks/api-hooks/users';

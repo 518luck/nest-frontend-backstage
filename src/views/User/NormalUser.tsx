@@ -1,7 +1,5 @@
 import { Table } from 'antd';
 
-import { getUsers } from '@/api';
-import { useState, useEffect } from 'react';
 import { useGetUsersQuery } from '@/hooks/api-hooks';
 
 const columns = [
@@ -29,9 +27,10 @@ const columns = [
 
 const NormalUser = () => {
   const { data, isLoading } = useGetUsersQuery();
+
   return (
     <div>
-      <Table columns={columns} dataSource={data || []} loading={isLoading} />
+      <Table columns={columns} dataSource={[]} loading={isLoading} />
     </div>
   );
 };

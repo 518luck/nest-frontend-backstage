@@ -1,1 +1,1 @@
-export * from '@/api/users';
+export * from '@/api/users.api';
