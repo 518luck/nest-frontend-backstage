@@ -6,7 +6,6 @@ const { Text } = Typography;
 
 const BreadcrumbNav = () => {
   const { pathList } = PathListStore();
-  console.log('🚀 ~ BreadcrumbNav ~ pathList:', pathList);
   const currentTitle = pathList[pathList.length - 1]?.name || '';
 
   return (
