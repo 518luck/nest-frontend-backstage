@@ -27,10 +27,12 @@ const columns = [
 
 const NormalUser = () => {
   const { data, isLoading } = useGetUsersQuery();
+  const dataList = data?.users || [];
+  const total = data?.total || 0;
 
   return (
     <div>
-      <Table columns={columns} dataSource={[]} loading={isLoading} />
+      <Table columns={columns} dataSource={dataList} loading={isLoading} />
     </div>
   );
 };

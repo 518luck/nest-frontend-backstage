@@ -9,6 +9,6 @@ export interface User {
 }
 
 export interface UserList {
-  data: User[];
+  users: User[];
   total: number;
 }
